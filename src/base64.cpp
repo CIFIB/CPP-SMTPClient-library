@@ -30,7 +30,7 @@ Ren� Nyffenegger rene.nyffenegger@adp-gmbh.ch
 
 using namespace jed_utils;
 
-static const std::string base64_chars =
+static const char szBaseChars[] =
 "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 "abcdefghijklmnopqrstuvwxyz"
 "0123456789+/";
@@ -41,6 +41,7 @@ static inline bool is_base64(unsigned char c) {
 }
 
 std::string Base64::Encode(unsigned char const *bytes_to_encode, size_t in_len) {
+	std::string base64_chars = szBaseChars;
     std::string ret;
     int i = 0;
     unsigned char char_array_3[3];
@@ -83,6 +84,7 @@ std::string Base64::Encode(unsigned char const *bytes_to_encode, size_t in_len) 
 }
 
 std::string Base64::Decode(std::string const &encoded_string) {
+	std::string base64_chars = szBaseChars;
     size_t in_len = encoded_string.size();
     int i = 0;
     int in_ = 0;
