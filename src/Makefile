@@ -15,3 +15,5 @@ compile: $(OBJS)
 	$(CXX) $(CXXFLAGS) -c $<
 	$(AR) -r $(LIB) $@
 
+clean:
+	rm -f *.o
